@@ -1,0 +1,14 @@
+var _a;
+//Quote API Start
+var fetchQuoteBy = function () {
+    fetch('https://api.adviceslip.com/advice')
+        .then(function (response) { return response.json(); })
+        .then(function (data) {
+        document.getElementById("quote-return").innerText = data.slip.advice;
+        console.log(data);
+    })
+        .catch(function (error) {
+        console.error('Error fetching advice: , error');
+    });
+};
+(_a = document.getElementById("quote")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", fetchQuoteBy);
