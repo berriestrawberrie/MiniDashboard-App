@@ -11,4 +11,4 @@ interface Task {
 }
 
 //DECLARE AN EMPTY ARRAY OF TASK OBJECTS
-const tasks: Task[] = [];
+const tasks: Task[] = []; 
