@@ -1,43 +1,30 @@
-// Load API key from environment variable
-import dotenv from 'dotenv';
-dotenv.config();
-
-// ====== FETCH WEATHER DATA ======
-const fetchWeather = async (city: string): Promise<void> => {
-  const API_KEY = process.env.WEATHER_API_KEY as string;
-
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(
-    city
-  )}&appid=${API_KEY}&units=metric`;
-
+// --- Weather API ---
+async function fetchWeather(city: string = 'Stockholm'): Promise<string> {
   try {
-    const response = await fetch(url);
-
-    if (!response.ok) {
-      throw new Error(
-        `Network response was not ok: ${response.status} ${response.statusText}`
-      );
-    }
-
-    const data = await response.json();
-
-    if (!data.weather || data.weather.length === 0) {
-      throw new Error('Weather data not found');
-    }
-
-    // ====== DISPLAY IN CONSOLE ====== 
-    console.log('\n********************* WEATHER DATA *********************\n');
-    console.log(
-      `Weather in ${city}: ${data.weather[0].description}, temperature: ${data.main.temp}°C`
-    );
-    console.log('\n********************************************************\n');
-  } catch (error) {
-    console.error('Fetch error:', error);
+    const res = await fetch(`https://wttr.in/${city}?format=3`);
+    return await res.text();
+  } catch {
+    return '⚠️ Weather unavailable';
   }
-};
+}
 
-fetchWeather('Stockholm,SE');
+// --- Initialize ---
+async function init() {
+  const cityInput = document.getElementById('cityInput') as HTMLInputElement;
+  const weatherText = document.getElementById('weather')!;
+  const getWeatherBtn = document.getElementById('getWeather')!;
 
+  const defaultCity = cityInput.value.trim() || 'Stockholm';
+  weatherText.textContent = '📍 ' + (await fetchWeather(defaultCity));
 
+  getWeatherBtn.addEventListener('click', async () => {
+    const city = cityInput.value.trim();
+    if (!city) return alert('Please enter a city!');
+    weatherText.textContent = '📍 ' + (await fetchWeather(city));
+  });
+}
 
-
+// --- DOM Events ---
+document.addEventListener('DOMContentLoaded', () => {
+  init();
+});
