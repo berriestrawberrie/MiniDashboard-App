@@ -20,6 +20,7 @@ const renderTasks = () =>
           <strong>${t.title}</strong> [${t.priority}]
           <span class="time">${t.createdAt.toLocaleString()}</span>
         </label>
+        <button type="button" class="delete" data-id="${t.id}">Delete</button>
       </div>
     `
     )
@@ -46,6 +47,16 @@ taskForm.addEventListener('submit', (e) => {
 
   taskForm.reset(); // <-- Reset the form 
   renderTasks();
+});
+
+// Delete task
+taskList.addEventListener('click', e => {
+  const target = e.target as HTMLElement | null;
+  if (target && target.classList.contains('delete')) {
+    const id = Number(target.dataset.id);
+    tasks = tasks.filter(t => t.id !== id);
+    renderTasks();
+  }
 });
 
 document.addEventListener('DOMContentLoaded', renderTasks);
