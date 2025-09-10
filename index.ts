@@ -53,6 +53,3 @@ function markComplete (id:number) {
         console.log('**Error: Task ID does not exist**');
     }
 }
-console.log(tasks);
-markComplete(2);
-console.log(tasks);
