@@ -9,11 +9,35 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <title>Document</title>
 </head>
-<body>
-    <ul id="task-list">
+<body class="w-4/5 mx-auto">
+    <!--COPY FROM KUNNIKAR-->
+     <h1>📋 Task Manager Dashboard</h1>
+        <!-- Task Management App -->
+
+        <!-- Add Task Form -->
+        <h2>Add New Task</h2>
+      <form id="taskForm" class="task-form">
+        <input type="text" name="title" placeholder="Enter task title" required>
+        <select name="priority" required>
+          <option value="" disabled selected>Select Priority</option>
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+        </select>
+        <input type="date"name="date"  required>
+        <button type="submit" class="bg-pink-400 p-2 rounded-md">Add Task</button>
+      </form>
+
+      <div id="taskList" class="task-list">
         
-    </ul>
+      </div>
+  <!--END OF COPY FROM KUNNIKAR-->
+    <div class="border rounded-md p-3 hidden" id="editDiv">
+
+      <button onclick="closeEdit()"><i class="fa-solid fa-circle-xmark text-2xl text-red-500"></i></button>
+    </div>
+
     <script src="index.js"></script>
-    <script src="tasks.js"></script>
+
 </body>
 </html>
