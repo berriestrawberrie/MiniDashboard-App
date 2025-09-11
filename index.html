@@ -17,15 +17,28 @@
         <!-- Add Task Form -->
         <h2>Add New Task</h2>
       <form id="taskForm" class="task-form">
-        <input type="text" name="title" placeholder="Enter task title" required>
-        <select name="priority" required>
-          <option value="" disabled selected>Select Priority</option>
-          <option value="low">Low</option>
-          <option value="medium">Medium</option>
-          <option value="high">High</option>
-        </select>
-        <input type="date"name="date"  required>
-        <button type="submit" class="bg-pink-400 p-2 rounded-md">Add Task</button>
+        <fieldset>
+          <input type="text" name="title" placeholder="Enter task title" required>
+          <select name="priority" required>
+            <option value="" disabled selected>Select Priority</option>
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+          </select>
+          <select name="category">
+            <option value="" disabled selected>Category</option>
+            <option>work</option>
+            <option>personal</option>
+            <option>school</option>
+          </select>
+          <input type="date"name="date"  required>
+        </fieldset>
+        <fieldset class="my-2">
+          <textarea name="desc" class="w-full rounded-sm border border-gray-300 p-1" placeholder="Task Description Optional"></textarea>
+        </fieldset>
+        <fieldset class="flex justify-end">
+          <button type="submit" class="bg-pink-400 p-2 rounded-md">Add Task</button>
+        </fieldset>
       </form>
 
       <div id="taskList" class="task-list">
