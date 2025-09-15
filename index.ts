@@ -1,11 +1,14 @@
 
 const quoteReturn = document.getElementById("quote-return")!;
+//TYPE THE RESPONSE & QUOTE FUNCTION
 type AdviceResponse = {
     slip:{
         id:number;
         advice:string;
     }
 }
+type QuoteFunction = ()=>void;
+
 //Quote API Start
 const fetchQuoteBy = ():void => {
     fetch('https://api.adviceslip.com/advice')
@@ -19,14 +22,17 @@ const fetchQuoteBy = ():void => {
     });
 }
 
-
-document.getElementById("quote")?.addEventListener("click",()=>{
+const delayAPI = (callback: QuoteFunction) =>{
     //DISPLAY WAIT MESSAGE
     quoteReturn.innerText = "loading..."
     //WAIT 2SEC THEN DO API CALL
     setTimeout(()=>{
-       fetchQuoteBy(); 
+       callback(); 
     },2000);
+}
+
+document.getElementById("quote")?.addEventListener("click",()=>{
+  delayAPI(fetchQuoteBy);
 });
 //fetchQuoteBy();
 

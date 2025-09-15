@@ -1,28 +1,3 @@
-
-var _a;
-var quoteReturn = document.getElementById("quote-return");
-//Quote API Start
-var fetchQuoteBy = function () {
-    fetch('https://api.adviceslip.com/advice')
-        .then(function (response) { return response.json(); })
-        .then(function (data) {
-        quoteReturn.innerText = data.slip.advice;
-        console.log(data);
-    })
-        .catch(function (error) {
-        console.error('Error fetching advice: , error');
-    });
-};
-(_a = document.getElementById("quote")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", function () {
-    //DISPLAY WAIT MESSAGE
-    quoteReturn.innerText = "loading...";
-    //WAIT 2SEC THEN DO API CALL
-    setTimeout(function () {
-        fetchQuoteBy();
-    }, 2000);
-});
-//fetchQuoteBy();
-
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -59,6 +34,32 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+var _a;
+var quoteReturn = document.getElementById("quote-return");
+//Quote API Start
+var fetchQuoteBy = function () {
+    fetch('https://api.adviceslip.com/advice')
+        .then(function (response) { return response.json(); })
+        .then(function (data) {
+        quoteReturn.innerText = data.slip.advice;
+        console.log(data);
+    })
+        .catch(function (error) {
+        console.error('Error fetching advice: , error');
+    });
+};
+var delayAPI = function (callback) {
+    //DISPLAY WAIT MESSAGE
+    quoteReturn.innerText = "loading...";
+    //WAIT 2SEC THEN DO API CALL
+    setTimeout(function () {
+        callback();
+    }, 2000);
+};
+(_a = document.getElementById("quote")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", function () {
+    delayAPI(fetchQuoteBy);
+});
+//fetchQuoteBy();
 // --- Weather API ---
 function fetchWeather() {
     return __awaiter(this, arguments, void 0, function (city) {
@@ -124,4 +125,3 @@ function init() {
 document.addEventListener('DOMContentLoaded', function () {
     init();
 });
-
