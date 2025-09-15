@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <!--FONT AWESOME-->
     <script src="https://kit.fontawesome.com/df8ac4cd23.js" crossorigin="anonymous"></script>
     <!--TAILWIND CSS-->
@@ -51,6 +52,21 @@
     </div>
 <!----------------------END OF TASK MANAGER APPLICATOIN----------------------->
 
-    <script src="index.js"></script>
+
+  <!-- Weather Widget -->
+  <h2>Weather</h2>
+  <input id="cityInput" placeholder="Enter your city" />
+  <button id="getWeather">Get Weather</button>
+  <p id="weather"></p>
+   <!--WRAPPER-->
+    <div class="mx-auto border w-4/5 p-4 mt-8 flex flex-col justify-center items-center">
+        <!--QUOTE API-->
+        <div class="flex items-center border">
+            <p class="w-2xs min-h-[20px]" id="quote-return"></p>
+            <button id="quote" class="border bg-gray-200">Inspire Me!</button>
+        </div>
+    </div><!--END OF WRAPPER-->
+  <script src="index.js"></script>
+
 </body>
 </html>
