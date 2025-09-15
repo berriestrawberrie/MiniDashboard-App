@@ -10,32 +10,50 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <title>Document</title>
 </head>
-<body class="w-4/5 mx-auto">
+<body class="w-4/5 mx-auto bg-pink-300">
+  <div class="flex flex-col items-center">
+    <!-- Weather Widget -->
+    <h2>Weather</h2>
+    <div class="flex gap-2">
+        <input id="cityInput" class="bg-white rounded-md p-2" placeholder="Enter your city" />
+      <button class="bg-pink-400 p-2 rounded-md" id="getWeather">Get Weather</button>
+    </div>
+      <p id="weather"></p>
+  </div>
+   <!--WRAPPER-->
+    <div class="mx-auto  w-4/5 p-4 mt-8 flex flex-col justify-center items-center">
+        <!--QUOTE API-->
+        <div class="flex items-center ">
+            <p class="w-2xs min-h-[20px] bg-white rounded-md p-2 min-h-[40px]" id="quote-return"></p>
+            <button id="quote" class="ms-2 bg-pink-400 p-2 rounded-md">Inspire Me!</button>
+        </div>
+    </div><!--END OF WRAPPER-->
+
     <!----------------------START OF TASK MANAGER APPLICATOIN----------------------->
-     <h1>📋 Task Manager Dashboard</h1>
+     <h1 class="text-2xl text-center">📋 Task Manager Dashboard</h1>
         <!-- Task Management App -->
 
         <!-- Add Task Form -->
         <h2>Add New Task</h2>
       <form id="taskForm" class="task-form">
         <fieldset>
-          <input type="text" name="title" placeholder="Enter task title" required>
-          <select name="priority" required>
+          <input class=" bg-white rounded-md p-2" type="text" name="title" placeholder="Enter task title" required>
+          <select class="bg-white rounded-md p-2" name="priority" required>
             <option value="" disabled selected>Select Priority</option>
             <option value="low">Low</option>
             <option value="medium">Medium</option>
             <option value="high">High</option>
           </select>
-          <select name="category">
+          <select class="bg-white rounded-md p-2" name="category">
             <option value="" disabled selected>Category</option>
             <option>work</option>
             <option>personal</option>
             <option>school</option>
           </select>
-          <input type="date"name="date"  required>
+          <input class="bg-white rounded-md p-2" type="date"name="date"  required>
         </fieldset>
         <fieldset class="my-2">
-          <textarea name="desc" class="w-full rounded-sm border border-gray-300 p-1" placeholder="Task Description Optional"></textarea>
+          <textarea name="desc" class="bg-white rounded-md p-2 w-full rounded-sm border border-gray-300 p-1" placeholder="Task Description Optional"></textarea>
         </fieldset>
         <fieldset class="flex justify-end">
           <button type="submit" class="bg-pink-400 p-2 rounded-md">Add Task</button>
@@ -53,19 +71,6 @@
 <!----------------------END OF TASK MANAGER APPLICATOIN----------------------->
 
 
-  <!-- Weather Widget -->
-  <h2>Weather</h2>
-  <input id="cityInput" placeholder="Enter your city" />
-  <button id="getWeather">Get Weather</button>
-  <p id="weather"></p>
-   <!--WRAPPER-->
-    <div class="mx-auto border w-4/5 p-4 mt-8 flex flex-col justify-center items-center">
-        <!--QUOTE API-->
-        <div class="flex items-center border">
-            <p class="w-2xs min-h-[20px]" id="quote-return"></p>
-            <button id="quote" class="border bg-gray-200">Inspire Me!</button>
-        </div>
-    </div><!--END OF WRAPPER-->
   <script src="index.js"></script>
 
 </body>
