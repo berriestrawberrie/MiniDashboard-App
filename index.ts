@@ -21,7 +21,7 @@ const renderTasks = () =>
   {taskList.innerHTML = tasks
     .map(
       (t: Task, index:number) => `
-      <div class='task m-3 border rounded-md p-3'>
+      <div class='task m-3 border bg-white rounded-md p-3'>
         <div class="flex justify-between items-center">
             <div>
             <button id="${t.id}" onclick="markComplete(${t.id})">${t.completed?    
@@ -46,7 +46,7 @@ const renderTasks = () =>
               <button type="button" onclick="updateTask(${t.id},'${t.title}','${t.description}');" class="ms-2 bg-indigo-400 p-1 rounded-md" data-id="${t.id}">Edit</button>
             </div>
         </div>
-        <div>
+        <div class="border border-gray-300 rounded-md m-2 p-2">
             <p>${t.description}</p>
         </div>
       </div>
@@ -137,6 +137,7 @@ const updateTask = (id:number,title:string, desc: string) =>{
           //GENERATE THE UPDATE FORM 
           updateForm.classList.remove("hidden");
           updateForm.innerHTML = `
+          <button onclick="closeEdit()"><i class="fa-solid fa-circle-xmark text-left text-2xl text-red-500"></i></button>
             <form id="editFormData" >
             <h2 class="font-bold text-lg">Edit Task: ${title}</h2>
             <input type="number" name="editID" class="hidden" value="${id}">
