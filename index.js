@@ -93,7 +93,7 @@ var updateTask = function (id, title, desc) {
             var priority = updateData.get('editPriority');
             var category = updateData.get('editCategory');
             var id = Number(updateData.get('editID'));
-            var dateString = updateData.get('date');
+            var dateString = updateData.get('editDate');
             //FIND THE INDEX OF THE TASK TO UPDATE
             var index = tasks.findIndex(function (task) { return task.id === id; });
             //APPLY UPDATES ONLY TO CHANGED VALUES

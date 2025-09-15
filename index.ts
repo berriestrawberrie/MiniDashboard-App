@@ -1,5 +1,5 @@
 
-/*KUNNIKAR CODE HERE------------------------*/
+/*KUNNIKAR CODE ADD & DELETE FUNCTIONS HERE------------------------*/
 type Task = {
   id: number;
   title: string;
@@ -100,8 +100,9 @@ taskList.addEventListener('click', e => {
 });
 
 document.addEventListener('DOMContentLoaded', renderTasks);
-/*END OF KUNNIKAR CODE HERE------------------------*/
+/*END OF KUNNIKAR CODE ADD & DELETE FUNCTIONS HERE------------------------*/
 
+/*START OF BROOKE CODE ADD & DELETE FUNCTIONS HERE------------------------*/
 function markComplete (id:number):void {
     //FIND INDEX OF CONTACT TO MARK COMPLETE
     const index:number = tasks.findIndex(task => task.id === id);
@@ -171,7 +172,7 @@ const updateTask = (id:number,title:string, desc: string) =>{
               const priority = updateData.get('editPriority') as 'low' | 'medium' | 'high';
               const category = updateData.get('editCategory') as 'work' | 'personal' | 'school';
               const id = Number(updateData.get('editID'));
-              const dateString = updateData.get('date');
+              const dateString = updateData.get('editDate');
               //FIND THE INDEX OF THE TASK TO UPDATE
               const index = tasks.findIndex(task => task.id === id);
               //APPLY UPDATES ONLY TO CHANGED VALUES
@@ -209,3 +210,4 @@ const updateTask = (id:number,title:string, desc: string) =>{
 const closeEdit = ()=>{
   document.getElementById("editDiv")?.classList.add("hidden")
 }
+/*END OF BROOKE CODE ADD & DELETE FUNCTIONS HERE------------------------*/
