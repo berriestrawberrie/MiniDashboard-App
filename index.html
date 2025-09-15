@@ -3,12 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task Manager Dashboard</title>
+
+    <!--FONT AWESOME-->
+    <script src="https://kit.fontawesome.com/df8ac4cd23.js" crossorigin="anonymous"></script>
     <!--TAILWIND CSS-->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Document</title>
 </head>
-<body>
-  <h1>📋 Task Manager Dashboard</h1>
+<body class="w-4/5 mx-auto">
+    <!----------------------START OF TASK MANAGER APPLICATOIN----------------------->
+     <h1>📋 Task Manager Dashboard</h1>
+        <!-- Task Management App -->
+
+        <!-- Add Task Form -->
+        <h2>Add New Task</h2>
+      <form id="taskForm" class="task-form">
+        <fieldset>
+          <input type="text" name="title" placeholder="Enter task title" required>
+          <select name="priority" required>
+            <option value="" disabled selected>Select Priority</option>
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+          </select>
+          <select name="category">
+            <option value="" disabled selected>Category</option>
+            <option>work</option>
+            <option>personal</option>
+            <option>school</option>
+          </select>
+          <input type="date"name="date"  required>
+        </fieldset>
+        <fieldset class="my-2">
+          <textarea name="desc" class="w-full rounded-sm border border-gray-300 p-1" placeholder="Task Description Optional"></textarea>
+        </fieldset>
+        <fieldset class="flex justify-end">
+          <button type="submit" class="bg-pink-400 p-2 rounded-md">Add Task</button>
+        </fieldset>
+      </form>
+
+      <div id="taskList" class="task-list">
+        
+      </div>
+  <!--END OF COPY FROM KUNNIKAR-->
+    <div class="border rounded-md p-3 hidden" id="editDiv">
+
+      <button onclick="closeEdit()"><i class="fa-solid fa-circle-xmark text-2xl text-red-500"></i></button>
+    </div>
+<!----------------------END OF TASK MANAGER APPLICATOIN----------------------->
+
 
   <!-- Weather Widget -->
   <h2>Weather</h2>
@@ -24,5 +67,6 @@
         </div>
     </div><!--END OF WRAPPER-->
   <script src="index.js"></script>
+
 </body>
 </html>
