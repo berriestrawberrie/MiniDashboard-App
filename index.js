@@ -59,15 +59,13 @@ taskForm.addEventListener('submit', function (e) {
     if (!title)
         return alert('Task title cannot be empty!');
     if (typeof dateString === 'string') {
-        var date = new Date(dateString);
-        // Use `date` here
         tasks.push({
             id: Date.now(),
             title: title,
             description: desc ? desc : "",
             completed: false,
             priority: priority,
-            createdAt: new Date(dateString),
+            createdAt: new Date(),
             category: category,
         });
     }
@@ -146,17 +144,6 @@ var updateTask = function (id, title, desc) {
             }
             if (category) {
                 tasks[index].category = category;
-            }
-            if (dateString) {
-                if (typeof dateString === 'string') {
-                    var date = new Date(dateString);
-                    // Use `date` here
-                    tasks[index].createdAt = date;
-                }
-                else {
-                    // Handle the case where 'date' is null or not a string
-                    throw new Error("Invalid or missing update date.");
-                }
             }
             //RE-RENDER THE LIST
             renderTasks();
