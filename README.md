@@ -3,7 +3,7 @@
 
 This is a simple weather app that fetches live weather data from [wttr.in](https://wttr.in) and displays it in the browser.
 <br><br>
-<img width="464" height="246" alt="Screenshot 2025-09-10 at 13 06 43" src="https://github.com/user-attachments/assets/e5c48283-6be7-47ec-86d8-5d567fb5fc3b" />
+<img src="images/weatherAPI.png" />
 
 
 ---
@@ -19,8 +19,18 @@ This is a simple weather app that fetches live weather data from [wttr.in](https
 1. The app uses **TypeScript / JavaScript** with the `fetch()` API.
 Weather data is retrieved from:  [wttr.in Stockholm city](https://wttr.in/{Stockholm}?format=3)
 
-
-<br><br><br>
+<br><br>
 ## Node.js + TypeScript backend that handle Weather API integration
 
-<img width="443" height="102" alt="APIoutput" src="https://github.com/user-attachments/assets/030f1261-f11f-4297-b4a2-7ce749242fff" />
+<img src="images/weatherResponse.png" />
+
+# Quote API 💡
+This is a simple quote app that fetches a random quote when the Inspire Me button is pressed.
+
+<img src="images/quoteAPI.png">
+
+# Task Manager 📋
+Task manager that lets you create, edit, mark complete, and delete tasks.
+<img src="images/Task manager.png">
+
+<img src="images/editform.png">
