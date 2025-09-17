@@ -44,7 +44,7 @@ var renderTasks = function () {
         .map(function (t) { return "\n      <div class='task m-3 border bg-white rounded-md p-3'>\n        <div class=\"flex justify-between items-center\">\n            <div>\n            <button id=\"".concat(t.id, "\" onclick=\"markComplete(").concat(t.id, ")\">").concat(t.completed ?
         "<i class=\"fa-regular fa-square-check text-2xl\"></i>" :
         "<i class=\"fa-regular fa-square text-2xl\"></i>", "</button>\n            </div>\n            <label>\n              <strong>").concat(t.title, "</strong> \n              <span\n                class=\"").concat(t.priority === "low" ? "bg-sky-300 p-1 rounded-md" :
-        t.priority === "medium" ? "bg-yellow-400 p-1 rounded-md" : "bg-rose-400 p-1 rounded-md", "\">\n              ").concat(t.priority, "\n              </span>\n              <span>\n              ").concat(t.category, "\n              </span>\n              <span class=\"time\">").concat(t.createdAt.toLocaleString(), "</span>\n            </label>\n            <div class=\"flex\">\n              <button type=\"button\" class=\"delete bg-red-400 p-1 rounded-md\" data-id=\"").concat(t.id, "\">Delete</button>\n              <button type=\"button\" onclick=\"updateTask(").concat(t.id, ",'").concat(t.title, "','").concat(t.description, "');\" class=\"ms-2 bg-indigo-400 p-1 rounded-md\" data-id=\"").concat(t.id, "\">Edit</button>\n            </div>\n        </div>\n        <div class=\"border border-gray-300 rounded-md m-2 p-2\">\n            <p>").concat(t.description, "</p>\n        </div>\n      </div>\n    "); })
+        t.priority === "medium" ? "bg-yellow-400 p-1 rounded-md" : "bg-rose-400 p-1 rounded-md", "\">\n              ").concat(t.priority, "\n              </span>\n              <span>\n              ").concat(t.category, "\n              </span>\n              <span class=\"time\">").concat(t.createdAt.toLocaleDateString(), "</span>\n            </label>\n            <div class=\"flex\">\n              <button type=\"button\" class=\"delete bg-red-400 p-1 rounded-md\" data-id=\"").concat(t.id, "\">Delete</button>\n              <button type=\"button\" onclick=\"updateTask(").concat(t.id, ",'").concat(t.title, "','").concat(t.description, "');\" class=\"ms-2 bg-indigo-400 p-1 rounded-md\" data-id=\"").concat(t.id, "\">Edit</button>\n            </div>\n        </div>\n        <div class=\"border border-gray-300 rounded-md m-2 p-2\">\n            <p>").concat(t.description, "</p>\n        </div>\n      </div>\n    "); })
         .join('');
     console.log(tasks);
 };
@@ -145,16 +145,10 @@ var updateTask = function (id, title, desc) {
             if (category) {
                 tasks[index].category = category;
             }
-            if (dateString) {
-                if (typeof dateString === 'string') {
-                    var date = new Date(dateString);
-                    // Use `date` here
-                    tasks[index].createdAt = date;
-                }
-                else {
-                    // Handle the case where 'date' is null or not a string
-                    throw new Error("Invalid or missing update date.");
-                }
+
+            if (typeof dateString === 'string' && dateString) {
+                tasks[index].createdAt = new Date(dateString);
+
             }
             //RE-RENDER THE LIST
             renderTasks();

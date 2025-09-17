@@ -4,7 +4,8 @@
 This is a simple weather app that fetches live weather data from [wttr.in](https://wttr.in) and displays it in the browser.
 <br><br>
 
-<img width="999" height="789" alt="Dashbord" src="https://github.com/user-attachments/assets/93f8291c-09ab-40c7-aa26-832822f15e6c" />
+
+<img width="1300" height="891" alt="Screenshot 2025-09-17 at 11 22 56" src="https://github.com/user-attachments/assets/a9eecd9e-9dc6-4505-8b69-b2a6279bd58d" />
 
 
 
@@ -34,6 +35,15 @@ This is a simple quote app that fetches a random quote when the Inspire Me butto
 
 # Task Manager 📋
 Task manager that lets you create, edit, mark complete, and delete tasks.
+<br><br>
 <img src="images/Task manager.png">
 
 <img src="images/editform.png">
+
+## 🤖 AI Tool Usage Documentation
+This project was developed with assistance from OpenAI's ChatGPT
+1. Refactored code with improvements: 
+   - Uses pure functions (map) to transform data.
+   - Minimizes direct DOM mutations (updates all at once).
+   - Cleaner, easier to maintain, and more declarative.
+     

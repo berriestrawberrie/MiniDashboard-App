@@ -39,7 +39,7 @@ const renderTasks = () =>
               <span>
               ${t.category}
               </span>
-              <span class="time">${t.createdAt.toLocaleString()}</span>
+              <span class="time">${t.createdAt.toLocaleDateString()}</span>
             </label>
             <div class="flex">
               <button type="button" class="delete bg-red-400 p-1 rounded-md" data-id="${t.id}">Delete</button>
@@ -182,15 +182,10 @@ const updateTask = (id:number,title:string, desc: string):void =>{
               if(description){tasks[index]!.description = description;}
               if(priority){tasks[index]!.priority = priority;}
               if(category){tasks[index]!.category = category;}
-              if(dateString){
-                    if (typeof dateString === 'string') {
-                      const date = new Date(dateString);
-                      // Use `date` here
-                      tasks[index]!.createdAt = date;
-                    } else {
-                      // Handle the case where 'date' is null or not a string
-                      throw new Error("Invalid or missing update date.");
-                    }
+
+              if (typeof dateString === 'string' && dateString) {
+                tasks[index]!.createdAt = new Date(dateString);
+
               }
               //RE-RENDER THE LIST
               renderTasks();
