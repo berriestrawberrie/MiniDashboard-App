@@ -3,7 +3,10 @@
 
 This is a simple weather app that fetches live weather data from [wttr.in](https://wttr.in) and displays it in the browser.
 <br><br>
-<img src="images/weatherAPI.png" />
+
+<img width="999" height="789" alt="Dashbord" src="https://github.com/user-attachments/assets/93f8291c-09ab-40c7-aa26-832822f15e6c" />
+
+
 
 
 ---
