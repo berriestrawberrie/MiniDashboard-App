@@ -59,13 +59,14 @@ taskForm.addEventListener('submit', function (e) {
     if (!title)
         return alert('Task title cannot be empty!');
     if (typeof dateString === 'string') {
+        var date = new Date(dateString);
         tasks.push({
             id: Date.now(),
             title: title,
             description: desc ? desc : "",
             completed: false,
             priority: priority,
-            createdAt: new Date(),
+            createdAt: new Date(dateString),
             category: category,
         });
     }
