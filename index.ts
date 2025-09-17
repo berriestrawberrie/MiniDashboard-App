@@ -20,7 +20,7 @@ const updateForm = document.getElementById("editDiv") as HTMLFormElement;
 const renderTasks = () =>
   {taskList.innerHTML = tasks
     .map(
-      (t: Task, index:number) => `
+      (t: Task) => `
       <div class='task m-3 border bg-white rounded-md p-3'>
         <div class="flex justify-between items-center">
             <div>
@@ -70,7 +70,6 @@ taskForm.addEventListener('submit', (e) => {
   if (!title) return alert('Task title cannot be empty!');
 
   if (typeof dateString === 'string') {
-    const date = new Date(dateString);
   
 
     tasks.push({
@@ -183,7 +182,16 @@ const updateTask = (id:number,title:string, desc: string):void =>{
               if(description){tasks[index]!.description = description;}
               if(priority){tasks[index]!.priority = priority;}
               if(category){tasks[index]!.category = category;}
-              
+              if(dateString){
+                    if (typeof dateString === 'string') {
+                      const date = new Date(dateString);
+                      // Use `date` here
+                      tasks[index]!.createdAt = date;
+                    } else {
+                      // Handle the case where 'date' is null or not a string
+                      throw new Error("Invalid or missing update date.");
+                    }
+              }
               //RE-RENDER THE LIST
               renderTasks();
               //CLOSE THE EDIT FORM
