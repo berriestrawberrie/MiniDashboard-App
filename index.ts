@@ -13,7 +13,7 @@ type Task = {
 
 let tasks: Task[] = [];
 
-const taskList = document.getElementById('taskList')!;
+const taskList = document.getElementById('taskList')as HTMLFormElement;
 const taskForm = document.getElementById('taskForm') as HTMLFormElement;
 const updateForm = document.getElementById("editDiv") as HTMLFormElement;
 
@@ -127,7 +127,7 @@ function markComplete (id:number):void {
 }
 
 
-const updateTask = (id:number,title:string, desc: string) =>{
+const updateTask = (id:number,title:string, desc: string):void =>{
     //FIND INDEX OF CONTACT TO EDIT
     const index:number = tasks.findIndex(task => task.id === id);
     //IF CONTACT FOUND
@@ -233,6 +233,7 @@ const delayAPI = (callback: QuoteFunction) =>{
        callback(); 
     },2000);
 }
+
 
 document.getElementById("quote")?.addEventListener("click",()=>{
   delayAPI(fetchQuoteBy);
